@@ -4,11 +4,6 @@ using Microsoft.Owin.FileSystems;
 using Microsoft.Owin.StaticFiles;
 using Owin;
 using Swashbuckle.Application;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace FunWithWebApi
@@ -23,8 +18,15 @@ namespace FunWithWebApi
             config.MapHttpAttributeRoutes();
 
             config
-                .EnableSwagger(c => c.SingleApiVersion("v1", "A title for your API"))
+                .EnableSwagger(c =>
+                    {
+                        c.SingleApiVersion("v1", "A title for your API");
+                        c.IncludeXmlComments($"FunWithWebApi.XML");
+                    }
+                )
+
                 .EnableSwaggerUi();
+
             //.EnableSwagger(swaggerPath, c =>
             //{
             //    c.RootUrl(req => ComputeHostAsSeenByOriginalClient(req));

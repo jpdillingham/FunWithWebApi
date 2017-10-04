@@ -1,9 +1,5 @@
 ﻿using Microsoft.Owin.Hosting;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FunWithWebApi
 {
@@ -23,7 +19,9 @@ namespace FunWithWebApi
             {
                 Console.WriteLine(ex.Message);
             }
-                Console.ReadKey();
+
+            Console.WriteLine("Press any key to exit...");
+            Console.ReadKey();
         }
     }
 }
